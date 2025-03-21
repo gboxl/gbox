@@ -154,16 +154,16 @@
 <body>
 
 <header>
-    Green Box - Sayuran Segar
+    [+] Green Box
 </header>
 
 <section class="hero">
-    <h1>Sayuran Segar Langsung dari Petani</h1>
+    <h1>Sayuran Segar Langsung dari Petani Anseng, Landak</h1>
     <p>Pesan sekarang, nikmati kesegaran alami!</p>
 </section>
 
 <div class="container">
-    <h2>Produk Kami</h2>
+    <h2>Jenis Sayuran : </h2>
     <div class="products">
         <div class="product">
             <img src="sawi.jpeg" alt="Sawi">
@@ -183,14 +183,68 @@
             <p>Rp 12.000 / kg</p>
             <a href="https://wa.me/6285386085127?text=Halo%2C%20saya%20ingin%20memesan%20Terong%20Ungu." class="button" target="_blank">Pesan</a>
         </div>
+        <div class="product">
+            <img src="daunubi.jpeg" alt="Cabai">
+            <h3>Daun Singkong</h3>
+            <p>Rp 5.000 / ikat</p>
+            <a href="https://wa.me/6285386085127?text=Halo%2C%20saya%20ingin%20memesan%20Daun%20Singkong." class="button" target="_blank">Pesan</a>
+        </div>
+        <div class="product">
+            <img src="rebung.jpeg" alt="Rebung">
+            <h3>Rebung</h3>
+            <p>Rp 5.000 / kg</p>
+            <a href="https://wa.me/6285386085127?text=Halo%2C%20saya%20ingin%20memesan%20Rebung." class="button" target="_blank">Pesan</a>
+        </div>
+        <div class="product">
+            <img src="petai.jpeg" alt="Rebung">
+            <h3>Petai</h3>
+            <p>Rp 20.000 / ikat</p>
+            <a href="https://wa.me/6285386085127?text=Halo%2C%20saya%20ingin%20memesan%20Petai." class="button" target="_blank">Pesan</a>
+        </div>
     </div>
 </div>
 
 <a href="https://wa.me/6285386085127" class="whatsapp-float" target="_blank">📱</a>
-
 <footer>
-    &copy; 2025 Green Box
+    <p>&copy; <span id="year"></span> <span class="brand">Green Box</span></p>
+    <small id="location">
+        🏡 Anseng & Senakin, Landak
+    </small>
 </footer>
 
+<style>
+  footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      position: relative;
+      margin-top: 40px;
+      transition: background 0.3s ease-in-out;
+  }
+  footer:hover {
+      background: #2c3e50;
+  }
+  .brand {
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.5s ease-in-out;
+  }
+  .brand:hover {
+      color: #ff9800;
+  }
+  #location {
+      display: block;
+      color: #3fa;
+      font-size: 14px;
+      margin-top: 5px;
+  }
+</style>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>

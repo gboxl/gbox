@@ -163,7 +163,8 @@
 </section>
 
 <div class="container">
-    <h2>Jenis Sayuran : </h2>
+    <h2>Jenis Buah & Sayuran : </h2>
+    <input type="text" id="searchInput" placeholder="Cari Buah & Sayuran..." onkeyup="searchProduct()" style="padding: 10px; width: 100%; max-width: 400px; margin: 20px auto; display: block; border-radius: 8px; border: 1px solid #ccc;">
     <div class="products">
         <div class="product">
             <img src="terong_a.jpeg" alt="Terong Asam">
@@ -292,8 +293,27 @@
 </style>
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+function searchProduct() {
+  const query = document.getElementById('searchInput').value.trim().toLowerCase();  // ambil seluruh input
+  const products = document.querySelectorAll('.product');
+
+  products.forEach(product => {
+    const h3 = product.querySelector('h3');
+    if (!h3) return;
+
+    const nameText = h3.textContent.toLowerCase();
+    const words = nameText.split(/\s+/);
+
+    // cek apakah ada kata yang dimulai dengan input yang diberikan (bukan hanya 2 huruf pertama)
+    const match = words.some(word => word.startsWith(query));
+    product.style.display = match ? 'block' : 'none';
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+});
 </script>
 </body>
-    </html>
-    
+</html>

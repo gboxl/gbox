@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Box - Sayuran Segar</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background: rgba(76, 175, 80, 0.9);
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        .hero {
+            padding: 60px 20px;
+            background: url('hero.jpeg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .hero h1, .hero p {
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: 50px;
+            text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.8);
+        }
+        
+        /* RESPONSIVE HERO */
+        @media (min-width: 1024px) {
+            .hero { height: 30vh; } /* Lebih kecil di PC */
+        }
+        @media (max-width: 768px) {
+            .hero { height: 40vh; } /* Sedang di tablet */
+        }
+        @media (max-width: 480px) {
+            .hero { height: 60vh; } /* Tetap besar di HP */
+        }
+
+        .container {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+        .product {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+        }
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        .product img {
+            width: 100%;
+            border-radius: 12px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s ease-in-out;
+        }
+        .button:hover {
+            background: #388E3C;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 24px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+            margin-top: 40px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            .products {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            .button {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    [+] Green Box Landak
+</header>
+
+<section class="hero">
+    <h1>Sayuran Segar Langsung dari Petani Anseng, Landak</h1>
+    <p>Pesan sekarang, nikmati kesegaran alami!</p>
+</section>
+
+<div class="container">
+    <h2>Jenis Buah & Sayuran : </h2>
+    <input type="text" id="searchInput" placeholder="Cari Buah & Sayuran..." onkeyup="searchProduct()" style="padding: 10px; width: 100%; max-width: 400px; margin: 20px auto; display: block; border-radius: 8px; border: 1px solid #ccc;">
+    <div class="products">
+        <div class="product">
+            <img src="terong_a.jpeg" alt="Terong Asam">
+            <h3>Terong Asam</h3>
+          <!--  <p>Rp 10.000 / ikat</p> -->
+            <a href="https://wa.me/6285328736706?text=Halo%2C%20saya%20ingin%20memesan%20Terong%20Asam." class="button" target="_blank">Pesan</a>
+        </div>
+         <div class="product">
+            <img src="pisang.jpg" alt="Pisang">
+            <h3>Pisang</h3>
+          <!--  <p>Rp 10.000 / ikat</p> -->
+            <a href="https://wa.me/6285328736706?text=Halo%2C%20saya%20ingin%20memesan%20Pisang." class="button" target="_blank">Pesan</a>
+        </div>
+        <div class="product">
+            <img src="cabai.jpeg" alt="Cabai">
+            <h3>Cabai Merah</h3>
+          <!--  <p>Rp 30.000 / kg</p> -->
+            <a href="https://wa.me/6285328736706?text=Halo%2C%20saya%20ingin%20memesan%20Cabai%20Merah." class="button" target="_blank">Pesan</a>
+        </div>
+        <div class="product">
+            <img src="terong.jpg" alt="Terong">
+            <h3>Terong</h3>
+          <!--  <p>Rp 12.000 / kg</p> -->
+            <a href="https://wa.me/6285328736706?text=Halo%2C%20saya%20ingin%20memesan%20Terong%20Ungu." class="button" target="_blank">Pesan</a>
+        </div>
+        <div class="product">
+            <img src="daunubi.jpeg" alt="Cabai">
+            <h3>Daun Singkong</h3>
+           <!-- <p>Rp 5.000 / ikat</p> -->
+            <a href="https://wa.me/6285328736706?text=Halo%2C%20saya%20ingin%20memesan%20Daun%20Singkong." class="button" target="_blank">Pesan</a>
+        </div>
+        <div class="product">
+            <img src="rebung.jpeg" alt="Rebung">
+            <h3>Rebung</h3>
+          <!--  <p>Rp 5.000 / kg</p> -->
+            <a href="https://wa.me/6285328736706?text=Halo%2C%20saya%20ingin%20memesan%20Rebung." class="button" target="_blank">Pesan</a>
+        </div>
+        <div class="product">
+            <img src="petai.jpeg" alt="Rebung">
+            <h3>Petai</h3>
+         <!--   <p>Rp 20.000 / ikat</p> -->
+            <a href="https://wa.me/6285328736706?text=Halo%2C%20saya%20ingin%20memesan%20Petai." class="button" target="_blank">Pesan</a>
+        </div>
+         <div class="product">
+            <img src="jengkol.jpeg" alt="Jengkol">
+            <h3>Jengkol</h3>
+          <!--  <p>Rp 10.000 / ikat</p> -->
+            <a href="https://wa.me/6285328736706?text=Halo%2C%20saya%20ingin%20memesan%20Jengkol." class="button" target="_blank">Pesan</a>
+        </div>
+        <div class="product">
+            <img src="serai.jpeg" alt="Serai">
+            <h3>Serai</h3>
+         <!--   <p>Rp 20.000 / ikat</p> -->
+            <a href="https://wa.me/6285328736706?text=Halo%2C%20saya%20ingin%20memesan%20Serai." class="button" target="_blank">Pesan</a>
+        </div>
+        <div class="product">
+            <img src="laos.jpg" alt="Laos">
+            <h3>Laos</h3>
+         <!--   <p>Rp 20.000 / ikat</p> -->
+            <a href="https://wa.me/6285328736706?text=Halo%2C%20saya%20ingin%20memesan%20Laos." class="button" target="_blank">Pesan</a>
+        </div>
+        <div class="product">
+            <img src="jeruk.jpg" alt="Jeruk Sambal">
+            <h3>Jeruk Sambal</h3>
+         <!--   <p>Rp 20.000 / ikat</p> -->
+            <a href="https://wa.me/6285328736706?text=Halo%2C%20saya%20ingin%20memesan%20Jeruk%20Sambal." class="button" target="_blank">Pesan</a>
+        </div>
+        <div class="product">
+            <img src="keladi.jpg" alt="Keladi">
+            <h3>Keladi</h3>
+         <!--   <p>Rp 20.000 / ikat</p> -->
+            <a href="https://wa.me/6285328736706?text=Halo%2C%20saya%20ingin%20memesan%20Keladi." class="button" target="_blank">Pesan</a>
+        </div>
+        <div class="product">
+            <img src="ayam.jpg" alt="Ayam Bangkok">
+            <h3>Ayam Bangkok</h3>
+         <!--   <p>Rp 20.000 / ikat</p> -->
+            <a href="https://wa.me/6285328736706?text=Halo%2C%20saya%20ingin%20memesan%20Ayam%20Bangkok." class="button" target="_blank">Pesan</a>
+        </div>
+        
+        
+    </div>
+</div>
+
+<a href="https://wa.me/6285328736706" class="whatsapp-float" target="_blank">📱</a>
+<footer>
+    <p>&copy; <span id="year"></span> <span class="brand">Green Box</span></p>
+    <small id="location">
+        🏡 Anseng & Senakin, Landak
+    </small>
+</footer>
+
+<style>
+  footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      position: relative;
+      margin-top: 40px;
+      transition: background 0.3s ease-in-out;
+  }
+  footer:hover {
+      background: #2c3e50;
+  }
+  .brand {
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.5s ease-in-out;
+  }
+  .brand:hover {
+      color: #ff9800;
+  }
+  #location {
+      display: block;
+      color: #3fa;
+      font-size: 14px;
+      margin-top: 5px;
+  }
+  .product img {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+  }
+</style>
+
+<script>
+function searchProduct() {
+  const query = document.getElementById('searchInput').value.trim().toLowerCase();  // ambil seluruh input
+  const products = document.querySelectorAll('.product');
+
+  products.forEach(product => {
+    const h3 = product.querySelector('h3');
+    if (!h3) return;
+
+    const nameText = h3.textContent.toLowerCase();
+    const words = nameText.split(/\s+/);
+
+    // cek apakah ada kata yang dimulai dengan input yang diberikan (bukan hanya 2 huruf pertama)
+    const match = words.some(word => word.startsWith(query));
+    product.style.display = match ? 'block' : 'none';
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+});
+</script>
+</body>
+      </html>
+      
